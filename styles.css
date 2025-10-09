@@ -1,0 +1,380 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #1a1a1a;
+    background: #f8f9fa;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+    border-bottom: 1px solid #e1e4e8;
+    margin-bottom: 60px;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: #0366d6;
+    letter-spacing: -0.5px;
+}
+
+.nav-link {
+    color: #586069;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.nav-link:hover {
+    background: #f6f8fa;
+    color: #0366d6;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    color: #1a1a1a;
+}
+
+.subtitle {
+    font-size: 22px;
+    color: #586069;
+    margin-bottom: 32px;
+    font-weight: 400;
+}
+
+.body-text {
+    font-size: 18px;
+    color: #24292e;
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* CTA Box */
+.cta-box {
+    background: linear-gradient(135deg, #0366d6 0%, #0550ae 100%);
+    padding: 48px;
+    border-radius: 12px;
+    margin: 48px auto;
+    max-width: 700px;
+    box-shadow: 0 8px 24px rgba(3, 102, 214, 0.2);
+}
+
+.cta-text {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 24px;
+    font-weight: 500;
+}
+
+.cta-button {
+    display: inline-block;
+    background: white;
+    color: #0366d6;
+    padding: 16px 48px;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.cta-button.large {
+    padding: 20px 60px;
+    font-size: 20px;
+}
+
+.subtext {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+    margin-top: 16px;
+}
+
+/* Features Section */
+.features, .use-cases, .benefits {
+    margin-bottom: 80px;
+}
+
+h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #1a1a1a;
+}
+
+.feature-grid, .benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+    margin-top: 40px;
+}
+
+.feature, .benefit {
+    background: white;
+    padding: 32px;
+    border-radius: 8px;
+    border: 1px solid #e1e4e8;
+    transition: all 0.3s;
+}
+
+.feature:hover, .benefit:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transform: translateY(-4px);
+}
+
+.feature h3, .benefit h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    color: #0366d6;
+}
+
+.feature p, .benefit p {
+    font-size: 16px;
+    color: #586069;
+    line-height: 1.6;
+}
+
+/* Use Cases */
+.use-cases ul {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.use-cases li {
+    font-size: 18px;
+    color: #24292e;
+    padding: 16px 0;
+    border-bottom: 1px solid #e1e4e8;
+    list-style: none;
+    padding-left: 32px;
+    position: relative;
+}
+
+.use-cases li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #0366d6;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* Example Flow (Casual Page) */
+.example {
+    margin-bottom: 80px;
+}
+
+.example-flow {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.step {
+    background: white;
+    padding: 32px;
+    border-radius: 8px;
+    border: 1px solid #e1e4e8;
+    margin-bottom: 24px;
+}
+
+.step-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0366d6;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.step-content {
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.user-input {
+    background: #f6f8fa;
+    padding: 12px 16px;
+    border-radius: 6px;
+    border-left: 3px solid #0366d6;
+    margin: 8px 0;
+    font-style: italic;
+}
+
+.question {
+    color: #0366d6;
+    font-weight: 500;
+    margin: 12px 0 8px 0;
+}
+
+.result-bad {
+    color: #d73a49;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.output-box {
+    background: #f6f8fa;
+    padding: 16px;
+    border-radius: 6px;
+    margin: 12px 0;
+    border-left: 3px solid #28a745;
+}
+
+.output-label {
+    font-weight: 700;
+    color: #0366d6;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.output-text {
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    color: #24292e;
+}
+
+.output-subtext {
+    font-size: 13px;
+    color: #586069;
+    font-style: italic;
+    margin-top: 4px;
+}
+
+.arrow {
+    text-align: center;
+    font-size: 32px;
+    color: #0366d6;
+    margin: 16px 0;
+}
+
+/* Final CTA */
+.final-cta {
+    text-align: center;
+    padding: 60px 0;
+}
+
+.final-cta h2 {
+    margin-bottom: 32px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 60px 0 40px 0;
+    border-top: 1px solid #e1e4e8;
+    margin-top: 80px;
+    color: #586069;
+    font-size: 14px;
+}
+
+footer a {
+    color: #0366d6;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.footer-links {
+    margin-top: 12px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 36px;
+    }
+    
+    .subtitle {
+        font-size: 18px;
+    }
+    
+    .body-text {
+        font-size: 16px;
+    }
+    
+    .cta-box {
+        padding: 32px 24px;
+    }
+    
+    .cta-text {
+        font-size: 20px;
+    }
+    
+    .feature-grid, .benefit-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    h2 {
+        font-size: 28px;
+    }
+}
+
+/* Professional Page Specific Styles */
+.professional .logo {
+    color: #0366d6;
+}
+
+.professional .cta-box {
+    background: linear-gradient(135deg, #0366d6 0%, #0550ae 100%);
+}
+
+/* Casual Page Specific Styles */
+.casual .logo {
+    color: #28a745;
+}
+
+.casual .cta-box {
+    background: linear-gradient(135deg, #28a745 0%, #22863a 100%);
+}
+
+.casual .cta-button {
+    color: #28a745;
+}
+
+.casual .step-label {
+    color: #28a745;
+}
+
+.casual .question {
+    color: #28a745;
+}
