@@ -1,0 +1,22 @@
+{
+  "name": "cribbage-remote-deck",
+  "version": "1.0.0",
+  "description": "Virtual shared deck for 2-player cribbage",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "install-all": "cd shared && npm install && cd ../server && npm install && cd ../client && npm install",
+    "build": "cd shared && npm run build && cd ../server && npm run build && cd ../client && npm run build",
+    "dev:server": "cd server && npm run dev",
+    "dev:client": "cd client && npm run dev",
+    "test": "cd server && npm run build && node dist/game-engine.test.js",
+    "clean": "rm -rf shared/dist shared/node_modules server/dist server/node_modules client/dist client/node_modules"
+  },
+  "keywords": ["cribbage", "websocket", "card-game", "multiplayer"],
+  "author": "Exegetical Labs",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ExegeticalLabs/exegete-ai.git"
+  }
+}

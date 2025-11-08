@@ -1,0 +1,534 @@
+/**
+ * Styles for Cribbage Remote Deck
+ * Design: Simple, trustworthy table aesthetic
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  background: linear-gradient(135deg, #1a3a1a 0%, #0d1f0d 100%);
+  color: #e0e0e0;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Connection banner */
+.connection-banner {
+  padding: 8px 16px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.connection-banner.connected {
+  background: #2d5016;
+  color: #90ee90;
+}
+
+.connection-banner.disconnected {
+  background: #5d3a1a;
+  color: #ffcc99;
+}
+
+/* Error and info banners */
+.error-banner,
+.info-banner {
+  padding: 12px 16px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.error-banner {
+  background: #5d1a1a;
+  color: #ffaaaa;
+  border-bottom: 2px solid #992222;
+}
+
+.info-banner {
+  background: #1a3a5d;
+  color: #aaccff;
+  border-bottom: 2px solid #2255aa;
+}
+
+/* ===== LOBBY ===== */
+
+.lobby {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.lobby-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.lobby-header h1 {
+  font-size: 36px;
+  margin-bottom: 12px;
+  color: #90ee90;
+}
+
+.lobby-header p {
+  font-size: 16px;
+  color: #b0b0b0;
+}
+
+.lobby-content {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.lobby-section {
+  margin-bottom: 24px;
+}
+
+.lobby-section h2 {
+  font-size: 18px;
+  margin-bottom: 16px;
+  color: #c0c0c0;
+}
+
+.lobby-section input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  font-size: 16px;
+  border: 2px solid #3a5a3a;
+  border-radius: 6px;
+  background: #1a2a1a;
+  color: #e0e0e0;
+}
+
+.lobby-section input:focus {
+  outline: none;
+  border-color: #5a8a5a;
+}
+
+.lobby-divider {
+  text-align: center;
+  margin: 24px 0;
+  color: #707070;
+  font-weight: 600;
+}
+
+.lobby-footer {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 14px;
+  color: #808080;
+}
+
+button,
+.btn-primary {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  background: #3a6a3a;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover:not(:disabled),
+.btn-primary:hover:not(:disabled) {
+  background: #4a8a4a;
+}
+
+button:disabled {
+  background: #2a3a2a;
+  color: #606060;
+  cursor: not-allowed;
+}
+
+/* ===== GAME TABLE ===== */
+
+.game-table {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 12px 16px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+}
+
+.session-info {
+  display: flex;
+  gap: 20px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.session-code {
+  color: #90ee90;
+}
+
+.player-id {
+  color: #aaccff;
+}
+
+/* Opponent zone */
+.opponent-zone {
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  margin-bottom: 20px;
+  min-height: 120px;
+}
+
+.player-info {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.player-name {
+  font-weight: 600;
+  color: #d0d0d0;
+}
+
+.player-role {
+  color: #90ee90;
+  font-size: 12px;
+  padding: 2px 8px;
+  background: rgba(144, 238, 144, 0.2);
+  border-radius: 4px;
+}
+
+.connection-status {
+  font-size: 18px;
+}
+
+.connection-status.connected {
+  color: #90ee90;
+}
+
+.connection-status.disconnected {
+  color: #808080;
+}
+
+/* Center zone */
+.center-zone {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  margin-bottom: 20px;
+  min-height: 300px;
+}
+
+.phase-indicator {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffcc99;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.cut-cards,
+.starter-area,
+.crib-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.cut-cards {
+  flex-direction: row;
+  gap: 40px;
+}
+
+.cut-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #b0b0b0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.his-heels {
+  font-size: 14px;
+  color: #ffcc99;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.peg-stack-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  min-height: 140px;
+}
+
+.peg-stack {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  min-height: 100px;
+}
+
+.peg-play {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.play-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 11px;
+  margin-top: 4px;
+}
+
+.player-badge {
+  background: rgba(144, 238, 144, 0.3);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+.current-count {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #90ee90;
+}
+
+.count-label {
+  font-size: 16px;
+  color: #b0b0b0;
+}
+
+.empty-stack {
+  color: #606060;
+  font-style: italic;
+  padding: 40px;
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.discard-info,
+.turn-indicator {
+  font-size: 14px;
+  color: #c0c0c0;
+  text-align: center;
+}
+
+.turn-indicator {
+  font-weight: 600;
+  color: #ffcc99;
+}
+
+/* Your zone */
+.your-zone {
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  min-height: 140px;
+}
+
+.your-info {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 12px;
+  font-size: 14px;
+  justify-content: center;
+}
+
+/* ===== CARDS ===== */
+
+.card {
+  width: 70px;
+  height: 100px;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.card:hover:not(.disabled) {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.card.selected {
+  transform: translateY(-12px);
+  box-shadow: 0 6px 16px rgba(144, 238, 144, 0.5);
+  outline: 3px solid #90ee90;
+}
+
+.card.disabled {
+  opacity: 0.5;
+  cursor: not-allowed !important;
+}
+
+.card.red {
+  color: #d32f2f;
+}
+
+.card.black {
+  color: #1a1a1a;
+}
+
+.card-corner {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.card-corner.top-left {
+  top: 4px;
+  left: 6px;
+}
+
+.card-corner.bottom-right {
+  bottom: 4px;
+  right: 6px;
+  transform: rotate(180deg);
+}
+
+.card-corner .rank {
+  font-size: 16px;
+}
+
+.card-corner .suit {
+  font-size: 14px;
+}
+
+.card-center {
+  font-size: 32px;
+}
+
+.card-back {
+  background: linear-gradient(135deg, #2a4a7a 0%, #1a3a5a 100%);
+  border: 2px solid #0a2a4a;
+}
+
+.card-pattern {
+  width: 100%;
+  height: 100%;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(255, 255, 255, 0.1) 10px,
+    rgba(255, 255, 255, 0.1) 20px
+  );
+}
+
+/* ===== HAND ===== */
+
+.hand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  min-height: 120px;
+}
+
+.empty-hand {
+  color: #606060;
+  font-style: italic;
+  font-size: 14px;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 768px) {
+  .game-table {
+    padding: 10px;
+  }
+
+  .card {
+    width: 56px;
+    height: 80px;
+  }
+
+  .card-corner .rank {
+    font-size: 14px;
+  }
+
+  .card-corner .suit {
+    font-size: 12px;
+  }
+
+  .card-center {
+    font-size: 24px;
+  }
+
+  .phase-indicator {
+    font-size: 16px;
+  }
+
+  .current-count {
+    font-size: 20px;
+  }
+}
