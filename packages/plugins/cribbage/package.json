@@ -1,0 +1,11 @@
+{
+  "name": "@cribbage",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./cribbage_rules": "./src/cribbage_rules.ts",
+    "./cribbage_scoring": "./src/cribbage_scoring.ts"
+  },
+  "devDependencies": { "vitest": "^2.0.5" }
+}

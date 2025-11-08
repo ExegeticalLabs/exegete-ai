@@ -1,0 +1,11 @@
+{
+  "name": "@referee",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./referee_api": "./src/referee_api.ts",
+    "./drbg": "./src/drbg.ts",
+    "./shuffle": "./src/shuffle.ts",
+    "./hash": "./src/hash.ts"
+  }
+}

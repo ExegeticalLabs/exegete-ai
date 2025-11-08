@@ -1,0 +1,22 @@
+{
+  "name": "shared-deck-cribbage",
+  "private": true,
+  "packageManager": "pnpm@9.0.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "packages/plugins/*"
+  ],
+  "scripts": {
+    "dev": "pnpm -C apps/server dev & pnpm -C apps/web dev",
+    "build": "pnpm -C apps/server build && pnpm -C apps/web build",
+    "test": "vitest run --reporter=default",
+    "two-bot": "ts-node-esm scripts/two-bot-match.ts"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.6.3",
+    "vitest": "^2.0.5"
+  }
+}
