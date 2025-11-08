@@ -13,8 +13,11 @@ const PORT = Number(process.env.PORT ?? 8787);
 const sessions = new Map<string, Session>();
 
 function broadcast(sess: Session, msg: any) {
-  for (const ws of sess.conns.values()) {
-    if (ws.readyState === 1) ws.send(JSON.stringify(msg));
+  for (const [playerId, ws] of sess.conns.entries()) {
+    if (ws.readyState === 1) {
+      const playerMsg = { ...msg, public: { ...sess.state.public, private: { [playerId]: sess.state.private[playerId] } } };
+      ws.send(JSON.stringify(playerMsg));
+    }
   }
 }
 
@@ -46,7 +49,7 @@ fastify.get("/ws", { websocket: true }, (conn, req) => {
   const pid = sess.players.find(p => !sess.conns.has(p)) ?? "spectator-" + Math.random().toString(36).slice(2,6);
   sess.conns.set(pid, conn.socket as unknown as WebSocket);
 
-  const hello = { t: "WELCOME", sessionId, pid, public: sess.state.public };
+  const hello = { t: "WELCOME", sessionId, pid, public: { ...sess.state.public, private: { [pid]: sess.state.private[pid] } } };
   (conn.socket as any).send(JSON.stringify(hello));
 
   broadcast(sess, { t: "ANNOUNCE", text: `${pid} joined.` });
