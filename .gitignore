@@ -6,6 +6,9 @@ yarn.lock
 # Build outputs
 dist/
 build/
+shared/*.js
+shared/*.d.ts
+server/shared
 
 # TypeScript
 *.tsbuildinfo
