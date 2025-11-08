@@ -80,7 +80,7 @@ export default function App() {
 
   return (
     <div style={{ fontFamily: 'system-ui', padding: 16, maxWidth: 1200, margin: '0 auto' }}>
-      <h1>Shared Deck — Cribbage</h1>
+      <h1>Shared Deck — Cribbage <span style={{fontSize: 14, color: '#666'}}>v2.0-CARDS</span></h1>
 
       {!sessionId && <HostJoin onJoined={setSessionId} />}
 
