@@ -2,9 +2,8 @@ import Fastify from "fastify";
 import cors from "@fastify/cors";
 import wsPlugin from "@fastify/websocket";
 import { WebSocket } from "ws";
-import { makeStandard52, shuffledDeck, Session } from "./session";
-import { CribbageRules } from "@cribbage";
-import type { PlayerAction } from "@referee/referee_api";
+import { makeStandard52, shuffledDeck, Session } from "./session.js";
+import { CribbageRules } from "../../../packages/plugins/cribbage/src/cribbage_rules.js";
 
 const fastify = Fastify({ logger: false });
 await fastify.register(cors, { origin: true }); // CORS for web app

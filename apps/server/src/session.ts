@@ -1,6 +1,6 @@
-import type { IGameLogic, GameState, PlayerAction, DeckSpec } from "@referee/referee_api";
-import { HmacDRBG } from "@referee/drbg";
-import { shuffleDeterministic } from "@referee/shuffle";
+import type { IGameLogic, GameState, PlayerAction, DeckSpec } from "../../../packages/referee/src/referee_api.js";
+import { HmacDRBG } from "../../../packages/referee/src/drbg.js";
+import { shuffleDeterministic } from "../../../packages/referee/src/shuffle.js";
 
 export type Session = {
   id: string;
